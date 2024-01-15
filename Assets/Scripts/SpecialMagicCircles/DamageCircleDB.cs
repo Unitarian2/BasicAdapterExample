@@ -8,7 +8,7 @@ public class DamageCircleDB : MonoBehaviour, IDistanceBasedCircle
     public float Amount { get; set; }
     public Collider Collider { get; set; }
 
-    public float GetCalculatedAmount(Vector3 receiverPos)
+    public float GetCalculatedAmountByPos(Vector3 receiverPos)
     {
         float circleExtents = Collider.bounds.extents.x;
         

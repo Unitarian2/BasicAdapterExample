@@ -21,6 +21,6 @@ public class SpecialToRegularCircleAdapter : ICircle
 
     public float GetCalculatedAmount()
     {
-        return distanceBasedCircle.GetCalculatedAmount(receiverPos);
+        return distanceBasedCircle.GetCalculatedAmountByPos(receiverPos);
     }
 }
