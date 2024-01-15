@@ -29,10 +29,12 @@ public class ReceiveInteraction : Subject
                     circle = adapter;             
                 }
 
-                NotifyObservers(circle.Type, circle.GetCalculatedAmount());
-                isInteractable = false;
-                StartCoroutine(ReceiveInteractCooldown());
-
+                if (circle != null)
+                {
+                    NotifyObservers(circle.Type, circle.GetCalculatedAmount());
+                    isInteractable = false;
+                    StartCoroutine(ReceiveInteractCooldown());
+                }
             }
         }
     }
