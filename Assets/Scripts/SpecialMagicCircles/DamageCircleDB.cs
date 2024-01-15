@@ -13,9 +13,10 @@ public class DamageCircleDB : MonoBehaviour, IDistanceBasedCircle
         float circleExtents = Collider.bounds.extents.x;
         
         float distance = Vector3.Distance(Collider.gameObject.transform.position, receiverPos);
-
+        //Debug.Log("Distance is :" +distance+ " & Extent X is :" +circleExtents);
+        
         var lerpMod = Mathf.InverseLerp(circleExtents, 0f, distance);
-        Debug.Log(Mathf.Lerp(1f, Amount, lerpMod));
+       // Debug.Log(Mathf.Lerp(1f, Amount, lerpMod));
         return Mathf.Lerp(1f, Amount, lerpMod) * -1;
     }
     private void Start()
