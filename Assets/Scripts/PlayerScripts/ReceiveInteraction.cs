@@ -17,15 +17,18 @@ public class ReceiveInteraction : Subject
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("ReceiveInteractable"))
             {
+                //Debug.Log("Contacted with an Interactable");
                 ICircle circle = null;
-                if (TryGetComponent<ICircle>(out ICircle getCircle))
+                if (other.gameObject.TryGetComponent(out ICircle getCircle))
                 {
-                    circle = getCircle;    
+                    circle = getCircle;
+                    //Debug.Log("Contacted with ICircle");
                 }
 
-                if (TryGetComponent<IDistanceBasedCircle>(out IDistanceBasedCircle getSpecialCircle))
+                if (other.gameObject.TryGetComponent(out IDistanceBasedCircle getSpecialCircle))
                 {
-                    ICircle adapter = new SpecialToRegularCircleAdapter(this.gameObject.transform.position, getCircle.Type,getCircle.Amount, getSpecialCircle);
+                    //Debug.Log("Contacted with IDistanceBasedCircle");
+                    ICircle adapter = new SpecialToRegularCircleAdapter(this.gameObject.transform.position, getSpecialCircle.Type, getSpecialCircle.Amount, getSpecialCircle);
                     circle = adapter;             
                 }
 

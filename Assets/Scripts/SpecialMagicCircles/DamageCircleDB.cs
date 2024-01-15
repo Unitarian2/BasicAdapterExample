@@ -11,6 +11,7 @@ public class DamageCircleDB : MonoBehaviour, IDistanceBasedCircle
     public float GetCalculatedAmount(Vector3 receiverPos)
     {
         float circleExtents = Collider.bounds.extents.x;
+        
         float distance = Vector3.Distance(Collider.gameObject.transform.position, receiverPos);
 
         var lerpMod = Mathf.InverseLerp(circleExtents, 0f, distance);
